@@ -1,4 +1,4 @@
-package com.hangjiang.config;
+package com.sys.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.hangjiang")
+@ComponentScan(basePackages = "com.sys")
 public class WebMvcConfiguration {
 
     @Bean

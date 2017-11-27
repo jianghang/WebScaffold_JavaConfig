@@ -1,4 +1,4 @@
-package com.hangjiang.config;
+package com.sys.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
