@@ -3,16 +3,19 @@
     <properties>
         <!-- 文件输出格式 -->
         <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} |-%-5level [%thread] %c [%L] -| %msg%n</property>
+
+        <!--对日志进行格式化-->
+        <property name="LOG_MSG" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} --- [%X{requestUUID}] [%thread] [%l{1.}] : %msg%n "/>
     </properties>
 
     <appenders>
         <Console name="CONSOLE" target="system_out">
-            <PatternLayout pattern="${PATTERN}"/>
+            <PatternLayout pattern="${LOG_MSG}"/>
         </Console>
-        <RollingFile name="File" fileName="log/monitor.log" append="false"
-                     filePattern="/log/$${date:yyyy-MM}/monitor-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="File" fileName="${sys:catalina.home}/logs/weblog/service.log" append="false"
+                     filePattern="${sys:catalina.home}/logs/weblog/$${date:yyyy-MM}/service-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout>
-                <pattern>[%-5p] %d %c - %m%n</pattern>
+                <pattern>${LOG_MSG}</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
@@ -23,7 +26,7 @@
 
     <loggers>
         <logger name="com.sys" level="debug"/>
-        <root level="info">
+        <root level="debug">
             <appender-ref ref="CONSOLE"/>
             <appender-ref ref="File"/>
         </root>
