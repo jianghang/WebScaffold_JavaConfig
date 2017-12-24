@@ -26,3 +26,4 @@ hs_err_pid*
 /target/
 /WebScaffold_JavaConfig.iml
 /.idea/
+/${sys:catalina.home}/

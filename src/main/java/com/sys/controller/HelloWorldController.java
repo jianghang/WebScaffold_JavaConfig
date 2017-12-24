@@ -20,7 +20,16 @@ public class HelloWorldController {
     public String sayHello(ModelMap modelMap){
         modelMap.addAttribute("greeting","Hello World from Spring 4 MVC");
         logger.info(JSONUtils.toJSONString(modelMap));
+        logger.error("error");
 
         return "hello";
+    }
+
+    public static void main(String[] args){
+        logger.info("hello");
+        logger.debug("debug");
+        logger.warn("warn");
+        logger.error("error");
+        logger.fatal("fatal");
     }
 }
